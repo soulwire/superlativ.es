@@ -1,0 +1,314 @@
+html, body {
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    font-family: 'Fredoka One', cursive;
+    line-height: 1;
+    background: #333;
+    overflow: hidden;
+    margin: 0;
+}
+
+.template, .words {
+
+    display: none;
+}
+
+.receptacle {
+    
+    -webkit-transition: -webkit-transform 0.33s ease, opacity 0.33s ease;
+    -moz-transition: -moz-transform 0.33s ease, opacity 0.33s ease;
+    -o-transition: -o-transform 0.33s ease, opacity 0.33s ease;
+    transition: transform 0.33s ease, opacity 0.33s ease;
+    
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    
+    -webkit-perspective: 1600px;
+    -moz-perspective: 1600px;
+    -ms-perspective: 1600px;
+    -o-perspective: 1600px;
+    perspective: 1600px;
+    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.word {
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    -webkit-transition: all 0.5s cubic-bezier(0.550, 0.000, 0.070, 1.000);
+    -moz-transition: all 0.5s cubic-bezier(0.550, 0.000, 0.070, 1.000);
+    -o-transition: all 0.5s cubic-bezier(0.550, 0.000, 0.070, 1.000);
+    transition: all 0.5s cubic-bezier(0.550, 0.000, 0.070, 1.000);
+
+    -webkit-transform: translate3d( 0, 0, -400px );
+    -moz-transform: translate3d( 0, 0, -400px );
+    -ms-transform: translate3d( 0, 0, -400px );
+    -o-transform: translate3d( 0, 0, -400px );
+    transform: translate3d( 0, 0, -400px );
+    
+    webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    
+    text-align: center;
+    background: #ff00ff;
+    position: absolute;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.word .text {
+
+    letter-spacing: -0.02em;
+    text-shadow: 0 20px 0 rgba(0,0,0,0.2);
+    display: inline-block;
+    opacity: 0.9;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+}
+
+.word .tint {
+    
+    -webkit-transform: translate3d( 0, 0, -1px );
+    -moz-transform: translate3d( 0, 0, -1px );
+    -ms-transform: translate3d( 0, 0, -1px );
+    -o-transform: translate3d( 0, 0, -1px );
+    transform: translate3d( 0, 0, -1px );
+    
+    -webkit-transition: opacity 0.5s ease;
+    -moz-transition: opacity 0.5s ease;
+    -o-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+    
+    background: #000;
+    position: absolute;
+    opacity: 0.75;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.word.active {
+
+    -webkit-transform: translate3d( 0, 0, 0 );
+    -moz-transform: translate3d( 0, 0, 0 );
+    -ms-transform: translate3d( 0, 0, 0 );
+    -o-transform: translate3d( 0, 0, 0 );
+    transform: translate3d( 0, 0, 0 );
+    
+    -webkit-transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s;
+    -o-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.word.active .tint {
+    
+    opacity: 0.0;
+}
+
+.word.prev {
+
+    -webkit-transition-timing-function: cubic-bezier(0.105, 0.380, 0.995, 0.160);
+    -moz-transition-timing-function: cubic-bezier(0.105, 0.380, 0.995, 0.160);
+    -o-transition-timing-function: cubic-bezier(0.105, 0.380, 0.995, 0.160);
+    transition-timing-function: cubic-bezier(0.105, 0.380, 0.995, 0.160);
+    
+    -webkit-transform: translate3d( 5%, 130%, 400px ) rotateX( -100deg ) rotateZ( 30deg );
+    -moz-transform: translate3d( 5%, 130%, 400px ) rotateX( -100deg ) rotateZ( 30deg );
+    -ms-transform: translate3d( 5%, 130%, 400px ) rotateX( -100deg ) rotateZ( 30deg );
+    -o-transform: translate3d( 5%, 130%, 400px ) rotateX( -100deg ) rotateZ( 30deg );
+    transform: translate3d( 5%, 130%, 400px ) rotateX( -100deg ) rotateZ( 30deg );
+    
+    -webkit-transform-origin: 0 25%;
+    -moz-transform-origin: 0 25%;
+    -ms-transform-origin: 0 25%;
+    -o-transform-origin: 0 25%;
+    transform-origin: 0 25%;
+}
+
+.word.prev .tint {
+    
+    opacity: 0.6;
+}
+
+.sound {
+
+    -webkit-transition: opacity 0.33s ease;
+    -moz-transition: opacity 0.33s ease;
+    -o-transition: opacity 0.33s ease;
+    transition: opacity 0.33s ease;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url( ../images/sound-on.svg );
+    
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    
+    position: absolute;
+    opacity: 0.3;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    right: 20px;
+    top: 20px;
+}
+
+.sound.off {
+    
+    background-image: url( ../images/sound-off.svg );
+}
+
+.sound:hover {
+    
+    opacity: 1.0;
+}
+
+.particulars {
+
+    -webkit-transition: all 0.33s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -moz-transition: all 0.33s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    -o-transition: all 0.33s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    transition: all 0.33s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    margin-left: -40px;
+    margin-top: -60px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 10001;
+    opacity: 0.3;
+    height: 40px;
+    width: 40px;
+    left: 50%;
+    top: 100%;
+}
+
+.particulars:hover {
+    
+    opacity: 0.8;
+}
+
+.exposition {
+
+    -webkit-transition: -webkit-transform 0.2s ease 0s, opacity 0.2s ease 0s;
+    -moz-transition: -moz-transform 0.2s ease 0s, opacity 0.2s ease 0s;
+    -o-transition: -o-transform 0.2s ease 0s, opacity 0.2s ease 0s;
+    transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
+    
+    -webkit-transform: scale( 0.8 );
+    -moz-transform: scale( 0.8 );
+    -ms-transform: scale( 0.8 );
+    -o-transform: scale( 0.8 );
+    transform: scale( 0.8 );
+    
+    line-height: 1.5;
+    margin-left: -230px;
+    margin-top: -130px;
+    font-size: 24px;
+    position: absolute;
+    opacity: 0.0;
+    height: 260px;
+    width: 460px;
+    left: 50%;
+    top: 50%;
+}
+
+.posit {
+    
+    -webkit-transition: top 0.33s ease 0.33s, opacity 0.33s ease 0.33s;
+    -moz-transition: top 0.33s ease 0.33s, opacity 0.33s ease 0.33s;
+    -o-transition: top 0.33s ease 0.33s, opacity 0.33s ease 0.33s;
+    transition: top 0.33s ease 0.33s, opacity 0.33s ease 0.33s;
+    
+    position: absolute;
+    line-height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 1.0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.show-particulars .receptacle {
+    
+    -webkit-transform: scale( 0.95 );
+    -moz-transform: scale( 0.95 );
+    -ms-transform: scale( 0.95 );
+    -o-transform: scale( 0.95 );
+    transform: scale( 0.95 );
+    opacity: 0.2;
+}
+
+.show-particulars .particulars {
+
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    
+    margin-left: -250px;
+    margin-top: -150px;
+    opacity: 1.0;
+    cursor: auto;
+    bottom: auto;
+    height: 300px;
+    width: 500px;
+    left: 50%;
+    top: 50%;
+}
+
+.show-particulars .exposition {
+
+    -webkit-transition: -webkit-transform 0.66s ease 0.0s, opacity 0.66s ease 0.2s;
+    -moz-transition: -moz-transform 0.66s ease 0.0s, opacity 0.66s ease 0.2s;
+    -o-transition: -o-transform 0.66s ease 0.0s, opacity 0.66s ease 0.2s;
+    transition: transform 0.66s ease 0.0s, opacity 0.66s ease 0.2s;
+    
+    -webkit-transform: scale( 1 );
+    -moz-transform: scale( 1 );
+    -ms-transform: scale( 1 );
+    -o-transform: scale( 1 );
+    transform: scale( 1 );
+    
+    opacity: 1.0;
+}
+
+.show-particulars .posit {
+
+    -webkit-transition: top 0.33s ease, opacity 0.33s ease;
+    -moz-transition: top 0.33s ease, opacity 0.33s ease;
+    -o-transition: top 0.33s ease, opacity 0.33s ease;
+    transition: top 0.33s ease, opacity 0.33s ease;
+    
+    opacity: 0.0;
+    top: 200%;
+}
